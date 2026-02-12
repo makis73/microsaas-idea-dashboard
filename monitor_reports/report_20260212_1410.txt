@@ -1,0 +1,45 @@
+=== Micro SaaS Idea Monitor Report ===
+Generated: 2026-02-12 14:10:49
+
+=== Reddit r/SaaS ===
+Checking top posts...
+• I built a boring utilities website that now gets 600K+ monthly users
+  ⬆️ 232 points | 💬 188 comments
+
+• I launched my app 3 hours ago and I’m honestly still shaking a little
+  ⬆️ 65 points | 💬 96 comments
+
+• There Is No Cheat Code to “Ranking in ChatGPT”
+  ⬆️ 66 points | 💬 19 comments
+
+✅ Reddit check completed
+
+=== Hacker News ===
+Checking top stories...
+Top 5 HN Stories:
+1. Welcoming Discord users amidst the challenge of Age Verification
+   ⬆️ 131 points | https://news.ycombinator.com/item?id=46995046
+
+2. GPT‑5.3‑Codex‑Spark
+   ⬆️ 393 points | https://news.ycombinator.com/item?id=46992553
+
+3. Gemini 3 Deep Think
+   ⬆️ 467 points | https://news.ycombinator.com/item?id=46991240
+
+4. An AI agent published a hit piece on me
+   ⬆️ 1141 points | https://news.ycombinator.com/item?id=46990729
+
+5. Polis: Open-source platform for large-scale civic deliberation
+   ⬆️ 104 points | https://news.ycombinator.com/item?id=46992815
+
+
+=== Monitoring Tips ===
+1. Product Hunt: Visit https://www.producthunt.com
+2. Indie Hackers: Visit https://www.indiehackers.com
+3. Twitter: Search #buildinpublic #microsaas
+4. Google Trends: https://trends.google.com
+
+=== Next Steps ===
+• Run this script twice daily (9 AM & 5 PM)
+• Review reports in: monitor_reports/
+• Look for patterns: 'pain', 'wish', 'alternative', 'tedious'

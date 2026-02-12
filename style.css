@@ -328,6 +328,17 @@ h1 i {
 .pattern-card p {
     color: var(--gray);
     font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.pattern-tag {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
 /* Footer */
