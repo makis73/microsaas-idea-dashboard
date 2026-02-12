@@ -1,0 +1,58 @@
+{
+  "monitoring": {
+    "sources": {
+      "product_hunt": {
+        "enabled": true,
+        "api_key_required": true,
+        "check_interval_hours": 6
+      },
+      "reddit": {
+        "enabled": true,
+        "subreddits": ["SaaS", "startups", "Entrepreneur"],
+        "check_interval_hours": 4
+      },
+      "hacker_news": {
+        "enabled": true,
+        "check_interval_hours": 4
+      },
+      "indie_hackers": {
+        "enabled": false,
+        "api_key_required": true,
+        "check_interval_hours": 12
+      }
+    },
+    "schedule": {
+      "morning_check": "0 9 * * *",
+      "afternoon_check": "0 17 * * *",
+      "timezone": "America/Los_Angeles"
+    },
+    "alerts": {
+      "telegram": {
+        "enabled": true,
+        "channel": "telegram",
+        "min_interest_score": 5
+      },
+      "email": {
+        "enabled": false,
+        "address": ""
+      }
+    }
+  },
+  "dashboard": {
+    "auto_refresh_minutes": 5,
+    "theme": "light",
+    "default_view": "reports"
+  },
+  "paths": {
+    "reports_folder": "monitor_reports",
+    "logs_folder": "logs",
+    "backup_folder": "backups"
+  },
+  "api_keys": {
+    "product_hunt": "",
+    "twitter": "",
+    "google_trends": "",
+    "github": ""
+  },
+  "version": "1.0.0"
+}

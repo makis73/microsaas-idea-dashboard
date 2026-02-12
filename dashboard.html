@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro SaaS Idea Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-lightbulb"></i> Micro SaaS Idea Dashboard</h1>
+            <p class="subtitle">Track trending ideas from Product Hunt, Reddit, Hacker News, and more</p>
+            <div class="last-updated" id="lastUpdated">Loading...</div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="stat-content">
+                    <h3>Today's Reports</h3>
+                    <div class="stat-value" id="todayReports">0</div>
+                    <div class="stat-desc">Reports generated today</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+                <div class="stat-content">
+                    <h3>Product Hunt</h3>
+                    <div class="stat-value" id="phCount">-</div>
+                    <div class="stat-desc">Trending products</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-reddit"></i></div>
+                <div class="stat-content">
+                    <h3>Reddit r/SaaS</h3>
+                    <div class="stat-value" id="redditCount">-</div>
+                    <div class="stat-desc">Active discussions</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-newspaper"></i></div>
+                <div class="stat-content">
+                    <h3>Hacker News</h3>
+                    <div class="stat-value" id="hnCount">-</div>
+                    <div class="stat-desc">Top stories</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="reports-section">
+                <h2><i class="fas fa-file-alt"></i> Latest Reports</h2>
+                <div class="reports-list" id="reportsList">
+                    <div class="loading">Loading reports...</div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="source-card">
+                    <h3><i class="fas fa-sync-alt"></i> Monitoring Schedule</h3>
+                    <ul class="schedule-list">
+                        <li><i class="far fa-clock"></i> 9:00 AM - Morning check</li>
+                        <li><i class="far fa-clock"></i> 5:00 PM - Afternoon check</li>
+                        <li><i class="fas fa-bell"></i> Telegram alerts enabled</li>
+                    </ul>
+                </div>
+
+                <div class="source-card">
+                    <h3><i class="fas fa-external-link-alt"></i> Quick Links</h3>
+                    <div class="links">
+                        <a href="https://www.producthunt.com" target="_blank" class="link-btn">
+                            <i class="fab fa-product-hunt"></i> Product Hunt
+                        </a>
+                        <a href="https://www.reddit.com/r/SaaS" target="_blank" class="link-btn">
+                            <i class="fab fa-reddit"></i> Reddit r/SaaS
+                        </a>
+                        <a href="https://news.ycombinator.com" target="_blank" class="link-btn">
+                            <i class="fab fa-hacker-news"></i> Hacker News
+                        </a>
+                        <a href="https://www.indiehackers.com" target="_blank" class="link-btn">
+                            <i class="fas fa-users"></i> Indie Hackers
+                        </a>
+                    </div>
+                </div>
+
+                <div class="source-card">
+                    <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                    <div class="actions">
+                        <button class="action-btn" onclick="runMonitor()">
+                            <i class="fas fa-play"></i> Run Monitor Now
+                        </button>
+                        <button class="action-btn" onclick="openReportsFolder()">
+                            <i class="fas fa-folder-open"></i> Open Reports Folder
+                        </button>
+                        <button class="action-btn" onclick="viewLatestReport()">
+                            <i class="fas fa-eye"></i> View Latest Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="idea-patterns">
+            <h2><i class="fas fa-chart-bar"></i> Idea Patterns Detected</h2>
+            <div class="patterns-grid" id="patternsGrid">
+                <div class="pattern-card">
+                    <div class="pattern-icon"><i class="fas fa-robot"></i></div>
+                    <h4>AI Automation</h4>
+                    <p>Tools that automate repetitive tasks with AI</p>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-icon"><i class="fas fa-tools"></i></div>
+                    <h4>Developer Tools</h4>
+                    <p>Utilities for developers (APIs, testing, deployment)</p>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h4>Analytics Simplification</h4>
+                    <p>Making complex analytics simple for non-tech users</p>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-icon"><i class="fas fa-cogs"></i></div>
+                    <h4>Workflow Automation</h4>
+                    <p>Connecting different apps and automating workflows</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Micro SaaS Idea Dashboard • Updated automatically • 
+                <a href="https://github.com/makis73/microsaas-idea-dashboard" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </p>
+            <p class="footer-note">Next check: <span id="nextCheck">-</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
