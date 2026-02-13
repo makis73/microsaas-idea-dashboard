@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Micro SaaS Idea Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .idea-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 5px solid #4361ee;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .idea-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            border-left-color: #7209b7;
+        }
+        
+        .idea-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .idea-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #212529;
+            margin: 0;
+            flex: 1;
+        }
+        
+        .idea-link {
+            color: #4361ee;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .idea-link:hover {
+            text-decoration: underline;
+            color: #3a0ca3;
+        }
+        
+        .score-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-left: 10px;
+        }
+        
+        .feasibility-badge {
+            background: #4cc9f0;
+            color: white;
+        }
+        
+        .audience-badge {
+            background: #f72585;
+            color: white;
+        }
+        
+        .total-score-badge {
+            background: #7209b7;
+            color: white;
+            font-size: 1rem;
+            padding: 6px 16px;
+        }
+        
+        .analysis-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .analysis-title {
+            color: #4361ee;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .ideas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .idea-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            font-size: 0.9rem;
+        }
+        
+        .business-model {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .source-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .reddit-tag {
+            background: #ff4500;
+            color: white;
+        }
+        
+        .hn-tag {
+            background: #ff6600;
+            color: white;
+        }
+        
+        .engagement {
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+        
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4361ee;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #4361ee;
+            background: white;
+            color: #4361ee;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .filter-btn:hover {
+            background: #3a0ca3;
+            color: white;
+            border-color: #3a0ca3;
+        }
+        
+        .source-filter {
+            margin-bottom: 25px;
+        }
+        
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .refresh-btn {
+            background: #4361ee;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 20px auto;
+        }
+        
+        .refresh-btn:hover {
+            background: #3a0ca3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-chart-line"></i> Enhanced Micro SaaS Idea Dashboard</h1>
+            <p class="subtitle">Interactive analysis with feasibility scores, links, and business model suggestions</p>
+            <div class="last-updated" id="lastUpdated">Loading...</div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="stat-content">
+                    <h3>Total Opportunities</h3>
+                    <div class="stat-value" id="totalOpportunities">0</div>
+                    <div class="stat-desc">Ideas analyzed</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-content">
+                    <h3>Avg Feasibility</h3>
+                    <div class="stat-value" id="avgFeasibility">0/10</div>
+                    <div class="stat-desc">Ease to build</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-content">
+                    <h3>Avg Audience</h3>
+                    <div class="stat-value" id="avgAudience">0/10</div>
+                    <div class="stat-desc">Market potential</div>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-star"></i></div>
+                <div class="stat-content">
+                    <h3>Top Score</h3>
+                    <div class="stat-value" id="topScore">0/100</div>
+                    <div class="stat-desc">Best opportunity</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="source-filter">
+            <h3><i class="fas fa-filter"></i> Filter by Source</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterIdeas('all')">All Sources</button>
+                <button class="filter-btn" onclick="filterIdeas('reddit')">Reddit Only</button>
+                <button class="filter-btn" onclick="filterIdeas('hn')">Hacker News Only</button>
+                <button class="filter-btn" onclick="filterIdeas('high-score')">Top Scores (70+)</button>
+                <button class="filter-btn" onclick="filterIdeas('high-feasibility')">High Feasibility (8+)</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="reports-section">
+                <h2><i class="fas fa-robot"></i> AI-Analyzed Opportunities</h2>
+                <div id="ideasContainer" class="reports-list">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                        <p>Loading analyzed ideas...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="source-card">
+                    <h3><i class="fas fa-info-circle"></i> How to Use</h3>
+                    <ul class="schedule-list">
+                        <li><i class="fas fa-mouse-pointer"></i> <strong>Click links</strong> to view original posts</li>
+                        <li><i class="fas fa-filter"></i> <strong>Filter</strong> by source or score</li>
+                        <li><i class="fas fa-chart-bar"></i> <strong>Scores:</strong> Feasibility × Audience</li>
+                        <li><i class="fas fa-bolt"></i> <strong>70+ score</strong> = High potential</li>
+                        <li><i class="fas fa-sync-alt"></i> <strong>Refresh</strong> for latest analysis</li>
+                    </ul>
+                </div>
+
+                <div class="source-card">
+                    <h3><i class="fas fa-cogs"></i> Quick Actions</h3>
+                    <div class="actions">
+                        <button class="action-btn" onclick="runEnhancedAnalyzer()">
+                            <i class="fas fa-play"></i> Run Enhanced Analyzer
+                        </button>
+                        <button class="action-btn" onclick="viewAllReports()">
+                            <i class="fas fa-folder-open"></i> View All Reports
+                        </button>
+                        <button class="action-btn" onclick="openSimpleDashboard()">
+                            <i class="fas fa-tachometer-alt"></i> Simple Dashboard
+                        </button>
+                    </div>
+                </div>
+
+                <div class="source-card">
+                    <h3><i class="fas fa-brain"></i> Analysis Methodology</h3>
+                    <div style="font-size: 0.9rem; color: #6c757d;">
+                        <p><strong>Feasibility (1-10):</strong><br>
+                        Based on complexity, required resources, and technical difficulty.</p>
+                        
+                        <p><strong>Audience Potential (1-10):</strong><br>
+                        Based on engagement metrics, market size, and demand signals.</p>
+                        
+                        <p><strong>Total Score:</strong><br>
+                        Feasibility × Audience Potential (max 100).<br>
+                        <em>Higher = Better opportunity</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="refresh-btn" onclick="loadEnhancedAnalysis()">
+            <i class="fas fa-sync-alt"></i> Refresh Analysis
+        </button>
+
+        <footer>
+            <p>Enhanced Micro SaaS Idea Dashboard • AI-Powered Analysis • 
+                <a href="https://github.com/makis73/microsaas-idea-dashboard" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </p>
+            <p class="footer-note">Analysis updates every 6 hours • Last run: <span id="lastRunTime">-</span></p>
+        </footer>
+    </div>
+
+    <script>
+        let allIdeas = [];
+        let currentFilter = 'all';
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            updateLastUpdated();
+            loadEnhancedAnalysis();
+            
+            // Auto-refresh every 5 minutes
+            setInterval(loadEnhancedAnalysis, 300000);
+        });
+        
+        function updateLastUpdated() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            document.getElementById('lastUpdated').textContent = 
+                `Last updated: ${now.toLocaleDateString('en-US', options)}`;
+        }
+        
+        async function loadEnhancedAnalysis() {
+            const container = document.getElementById('ideasContainer');
+            container.innerHTML = `
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading analyzed ideas...</p>
+                </div>
+            `;
+            
+            try {
+                // Try to load the latest JSON report
+                const response = await fetch('enhanced_reports/latest.json');
+                if (!response.ok) {
+                    throw new Error('No enhanced reports found');
+                }
+                
+                const data = await response.json();
+                displayAnalysis(data);
+                
+            } catch (error) {
+                console.log('No enhanced reports found, using sample data');
+                await loadSampleData();
+            }
+        }
+        
+        async function loadSampleData() {
+            // For now, use sample data
+            const sampleData = {
+                generated_at: new Date().toISOString(),
+                reddit_posts: [
+                    {
+                        title: "There Is No Cheat Code to 'Ranking in ChatGPT'",
+                        reddit_url: "https://www.reddit.com/r/SaaS/comments/example",
+                        score: 88,
+                        comments: 27,
+                        analysis: "High interest in AI content optimization. Many creators struggle with ranking in AI search results.",
+                        feasibility: 8,
+                        audience_potential: 9,
+                        business_model_suggestions: ["Freemium SaaS ($19-49/month)", "API access for agencies"],
+                        micro_saas_ideas: ["AI Content Score Analyzer", "ChatGPT Optimization Dashboard"]
+                    }
+                ],
+                hn_stories: [
+                    {
+                        title: "Skip the Tips: A game to select 'No Tip' but dark patterns try to stop you",
+                        hn_url: "https://news.ycombinator.com/item?id=46997519",
+                        score: 267,
+                        analysis: "Growing concern about ethical design. Tools for detecting/avoiding dark patterns.",
+                        feasibility: 7,
+                        audience_potential: 8,
+                        business_model_suggestions: ["Browser extension freemium", "Agency/enterprise plans"],
+                        micro_saas_ideas: ["Dark Pattern Scanner", "Ethical Design Checklist Tool"]
+                    }
+                ],
+                summary: {
+                    total_opportunities: 2,
+                    avg_feasibility: 7.5,
+                    avg_audience_potential: 8.5
+                }
+            };
+            
+            displayAnalysis(sampleData);
+        }
+        
+        function displayAnalysis(data) {
+            // Update stats
+            document.getElementById('totalOpportunities').textContent = data.summary.total_opportunities;
+            document.getElementById('avgFeasibility').textContent = data.summary.avg_feasibility.toFixed(1) + '/10';
+            document.getElementById('avgAudience').textContent = data.summary.avg_audience_potential.toFixed(1) + '/10';
+            
+            // Calculate top score
+            allIdeas = [...data.reddit_posts, ...data.hn_stories];
+            if (allIdeas.length > 0) {
+                const topScore = Math.max(...allIdeas.map(idea => idea.feasibility * idea.audience_potential));
+                document.getElementById('topScore').textContent = topScore + '/100';
+            }
+            
+            document.getElementById('lastRunTime').textContent = new Date(data.generated_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            // Display ideas
+            renderIdeas(allIdeas);
+        }
+        
+        function renderIdeas(ideas) {
+            const container = document.getElementById('ideasContainer');
+            
+            if (ideas.length === 0) {
+                container.innerHTML = `
+                    <div class="no-data">
+                        <i class="fas fa-search" style="font-size: 3rem; color: #6c757d; margin-bottom: 15px;"></i>
+                        <h3>No ideas found</h3>
+                        <p>Run the enhanced analyzer to generate ideas.</p>
+                        <button class="refresh-btn" onclick="runEnhancedAnalyzer()">
+                            <i class="fas fa-play"></i> Run Enhanced Analyzer
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Filter ideas based on current filter
+            let filteredIdeas = ideas;
+            if (currentFilter === 'reddit') {
+                filteredIdeas = ideas.filter(idea => idea.reddit_url);
+            } else if (currentFilter === 'hn') {
+                filteredIdeas = ideas.filter(idea => idea.hn_url);
+            } else if (currentFilter === 'high-score') {
+                filteredIdeas = ideas.filter(idea => (idea.feasibility * idea.audience_potential) >= 70);
+            } else if (currentFilter === 'high-feasibility') {
+                filteredIdeas = ideas.filter(idea => idea.feasibility >= 8);
+            }
+            
+            container.innerHTML = '';
+            
+            filteredIdeas.forEach((idea, index) => {
+                const totalScore = idea.feasibility * idea.audience_potential;
+                const ideaElement = document.createElement('div');
+                ideaElement.className = 'idea-card';
+                ideaElement.id = `idea-${index}`;
+                
+                let sourceTag = '';
+                let link = '';
+                let sourceText = '';
+                
+                if (idea.reddit_url) {
+                    sourceTag = '<span class="source-tag reddit-tag">Reddit</span>';
+                    link = idea.reddit_url;
+                    sourceText = 'Reddit r/SaaS';
+                } else {
+                    sourceTag = '<span class="source-tag hn-tag">HN</span>';
+                    link = idea.hn_url;
+                    sourceText = 'Hacker News';
+                }
+                
+                ideaElement.innerHTML = `
+                    <div class="idea-header">
+                        <h3 class="idea-title">${idea.title}</h3>
+                        <div>
+                            ${sourceTag}
+                            <span class="score-badge total-score-badge">${totalScore}/100</span>
+                        </div>
+                    </div>
+                    
+                    <div class="engagement">
+                        <span><i class="fas fa-arrow-up"></i> ${idea.score || idea.comments || 0} points</span>
+                        ${idea.comments ? `<span><i class="fas fa-comment"></i> ${idea.comments} comments</span>` : ''}
+                        <span><i class="fas fa-external-link-alt"></i> <a href="${link}" target="_blank" class="idea-link">View on ${sourceText}</a></span>
+                    </div>
+                    
+                    <div class="analysis-section">
+                        <div class="analysis-title">
+                            <i class="fas fa-brain"></i> AI Analysis
+                        </div>
+                        <p>${idea.analysis}</p>
+                        
+                        <div style="margin-top: 15px;">
+                            <span class="score-badge feasibility-badge">Feasibility: ${idea.feasibility}/10</span>
+                            <span class="score-badge audience-badge">Audience: ${idea.audience_potential}/10</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 15px;">
+                        <div class="analysis-title">
+                            <i class="fas fa-lightbulb"></i> Micro SaaS Ideas
+                        </div>
+                        <div class="ideas-grid">
+                            ${idea.micro_saas_ideas.map(saasIdea => `
+                                <div class="idea-item">
+                                    <i class="fas fa-rocket" style="color: #4361ee; margin-right: 8px;"></i>
+                                    ${saasIdea}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 15px;">
+                        <div class="analysis-title">
+                            <i class="fas fa-money-bill-wave"></i> Business Models
+                        </div>
+                        <div>
+                            ${idea.business_model_suggestions.map(model => `
+                                <span class="business-model">${model}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(ideaElement);
+            });
+            
+            // Update filter button states
+            updateFilterButtons();
+        }
+        
+        function filterIdeas(filterType) {
+            currentFilter = filterType;
+            renderIdeas(allIdeas);
+        }
+        
+        function updateFilterButtons() {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(currentFilter.replace('-', ' '))) {
+                    btn.classList.add('active');
+                } else if (currentFilter === 'all' && btn.textContent.includes('All Sources')) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+        
+        function runEnhancedAnalyzer() {
+            alert('Running enhanced analyzer... This will take a moment.');
+            // In a real implementation, this would trigger a backend process
+            console.log('Would run enhanced analyzer');
+            loadEnhancedAnalysis();
+        }
+        
+        function viewAllReports() {
+            alert('Opening reports directory...');
+            // In a real implementation, this would open the file explorer
+            console.log('Would open enhanced_reports/ directory');
+        }
+        
+        function openSimpleDashboard() {
+            window.location.href = 'dashboard.html';
+        }
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'r') {
+                e.preventDefault();
+                runEnhancedAnalyzer();
+            }
+            if (e.ctrlKey && e.key === 'f') {
+                e.preventDefault();
+                document.querySelector('.filter-btn').focus();
+            }
+        });
+    </script>
+</body>
+</html>

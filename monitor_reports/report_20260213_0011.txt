@@ -1,0 +1,45 @@
+=== Micro SaaS Idea Monitor Report ===
+Generated: 2026-02-13 00:11:42
+
+=== Reddit r/SaaS ===
+Checking top posts...
+• There Is No Cheat Code to “Ranking in ChatGPT”
+  ⬆️ 88 points | 💬 27 comments
+
+• I launched my app 3 hours ago and I’m honestly still shaking a little
+  ⬆️ 90 points | 💬 118 comments
+
+• Update 1: Non-technical co-founders want me to take a pay cut "for the bigger picture”
+  ⬆️ 72 points | 💬 43 comments
+
+✅ Reddit check completed
+
+=== Hacker News ===
+Checking top stories...
+Top 5 HN Stories:
+1. Resizing windows on macOS Tahoe – the saga continues
+   ⬆️ 461 points | https://news.ycombinator.com/item?id=46997008
+
+2. GPT‑5.3‑Codex‑Spark
+   ⬆️ 700 points | https://news.ycombinator.com/item?id=46992553
+
+3. MMAcevedo aka Lena by qntm
+   ⬆️ 36 points | https://news.ycombinator.com/item?id=46999224
+
+4. Gemini 3 Deep Think
+   ⬆️ 821 points | https://news.ycombinator.com/item?id=46991240
+
+5. Skip the Tips: A game to select "No Tip" but dark patterns try to stop you
+   ⬆️ 267 points | https://news.ycombinator.com/item?id=46997519
+
+
+=== Monitoring Tips ===
+1. Product Hunt: Visit https://www.producthunt.com
+2. Indie Hackers: Visit https://www.indiehackers.com
+3. Twitter: Search #buildinpublic #microsaas
+4. Google Trends: https://trends.google.com
+
+=== Next Steps ===
+• Run this script twice daily (9 AM & 5 PM)
+• Review reports in: monitor_reports/
+• Look for patterns: 'pain', 'wish', 'alternative', 'tedious'
