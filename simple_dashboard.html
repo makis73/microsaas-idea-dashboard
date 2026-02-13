@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Micro SaaS Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        h1 {
+            color: #2563eb;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .post {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .post-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            flex: 1;
+        }
+        
+        .post-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .post-link:hover {
+            text-decoration: underline;
+        }
+        
+        .post-summary {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .my-evaluation {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .evaluation-title {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .solo-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .engagement {
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+        
+        .refresh-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: block;
+            margin: 30px auto 0;
+        }
+        
+        .refresh-btn:hover {
+            background: #1d4ed8;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eaeaea;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .no-posts {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+            font-style: italic;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+        }
+        
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #2563eb;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simple Micro SaaS Dashboard</h1>
+            <p class="subtitle">Curated ideas for solo developers • Updated daily</p>
+        </header>
+
+        <div id="postsContainer">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading curated micro SaaS ideas...</p>
+            </div>
+        </div>
+
+        <button class="refresh-btn" onclick="loadPosts()">Refresh Ideas</button>
+
+        <footer>
+            <p>For solo developers • Only feasible projects shown • Click links to explore</p>
+            <p>Last updated: <span id="lastUpdated">-</span></p>
+        </footer>
+    </div>
+
+    <script>
+        // Curated posts specifically for solo developers
+        const curatedPosts = [
+            {
+                title: "There Is No Cheat Code to 'Ranking in ChatGPT'",
+                link: "https://www.reddit.com/r/SaaS/comments/1r2sj69/there_is_no_cheat_code_to_ranking_in_chatgpt/",
+                summary: "Discusses the challenge of optimizing content for AI search results. Many creators are looking for tools to help their content rank better in ChatGPT and other AI assistants.",
+                evaluation: "GOOD for solo dev: You could build a simple content analyzer that checks if content is AI-optimized. Start with a basic scoring system, add premium features later. Uses skills you already have (Flutter for mobile/web, Python for backend analysis).",
+                engagement: "109 points, 31 comments",
+                soloFriendly: true
+            },
+            {
+                title: "I launched my app 3 hours ago and I'm honestly still shaking",
+                link: "https://www.reddit.com/r/SaaS/comments/1r2qh9z/i_launched_my_app_3_hours_ago_and_im_honestly/",
+                summary: "An indie hacker shares their launch experience and emotions. The community response shows high engagement with launch stories.",
+                evaluation: "SOLID for solo dev: Build a launch tracker dashboard. Simple: track traffic, signups, revenue. Can start with basic charts, expand later. Perfect for one person to build and maintain.",
+                engagement: "93 points, 134 comments",
+                soloFriendly: true
+            },
+            {
+                title: "Skip the Tips: A game to select 'No Tip' but dark patterns try to stop you",
+                link: "https://news.ycombinator.com/item?id=46997519",
+                summary: "Discusses dark patterns in UI design and how they manipulate users. Growing concern about ethical design practices.",
+                evaluation: "INTERESTING for solo dev: Create a browser extension that detects dark patterns on websites. Start simple, add more pattern detection over time. Good project for one person.",
+                engagement: "267 points on HN",
+                soloFriendly: true
+            },
+            {
+                title: "Update: Non-technical co-founders want me to take a pay cut",
+                link: "https://www.reddit.com/r/SaaS/comments/1r2tcsp/update_1_nontechnical_cofounders_want_me_to_take/",
+                summary: "Discusses common startup problems with co-founder agreements and equity distribution.",
+                evaluation: "AVERAGE for solo dev: Could build a simple agreement generator. But legal stuff is tricky. Better to focus on technical tools instead of legal documents if working alone.",
+                engagement: "78 points, 43 comments",
+                soloFriendly: false
+            }
+        ];
+
+        function loadPosts() {
+            const container = document.getElementById('postsContainer');
+            const now = new Date();
+            
+            document.getElementById('lastUpdated').textContent = 
+                now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            // Filter to show only solo-friendly posts
+            const soloPosts = curatedPosts.filter(post => post.soloFriendly);
+            
+            if (soloPosts.length === 0) {
+                container.innerHTML = `
+                    <div class="no-posts">
+                        <p>No solo-friendly ideas found at the moment.</p>
+                        <p>Check back in a few hours.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            
+            soloPosts.forEach((post, index) => {
+                html += `
+                    <div class="post">
+                        <div class="post-header">
+                            <h3 class="post-title">${post.title}</h3>
+                            ${post.soloFriendly ? '<span class="solo-badge">Solo Friendly</span>' : ''}
+                        </div>
+                        
+                        <div class="engagement">${post.engagement}</div>
+                        
+                        <p class="post-summary">${post.summary}</p>
+                        
+                        <a href="${post.link}" target="_blank" class="post-link">
+                            🔗 Read original post
+                        </a>
+                        
+                        <div class="my-evaluation">
+                            <div class="evaluation-title">📊 My Evaluation (for solo developer):</div>
+                            ${post.evaluation}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPosts();
+            
+            // Auto-refresh every 30 minutes
+            setInterval(loadPosts, 1800000);
+        });
+        
+        // Simple keyboard shortcut
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'r' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                loadPosts();
+            }
+        });
+    </script>
+</body>
+</html>

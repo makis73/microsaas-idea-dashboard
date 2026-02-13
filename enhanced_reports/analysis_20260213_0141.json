@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-02-13T01:41:29.854754",
+  "reddit_posts": [
+    {
+      "title": "There Is No Cheat Code to \u201cRanking in ChatGPT\u201d",
+      "reddit_url": "https://reddit.com/r/SaaS/comments/1r2sj69/there_is_no_cheat_code_to_ranking_in_chatgpt/",
+      "score": 109,
+      "comments": 31,
+      "analysis": "High interest in AI content optimization. Many creators struggle with ranking in AI search results.",
+      "feasibility": 8,
+      "audience_potential": 9,
+      "business_model_suggestions": [
+        "Freemium SaaS ($19-49/month)",
+        "API access for agencies",
+        "One-time audit tool"
+      ],
+      "micro_saas_ideas": [
+        "AI Content Score Analyzer",
+        "ChatGPT Optimization Dashboard",
+        "AI SEO Keyword Research Tool"
+      ]
+    },
+    {
+      "title": "I launched my app 3 hours ago and I\u2019m honestly still shaking a little",
+      "reddit_url": "https://reddit.com/r/SaaS/comments/1r2qh9z/i_launched_my_app_3_hours_ago_and_im_honestly/",
+      "score": 93,
+      "comments": 134,
+      "analysis": "Strong emotional response to launching. Indie hacker community is highly engaged.",
+      "feasibility": 7,
+      "audience_potential": 8,
+      "business_model_suggestions": [
+        "Freemium launch tracker",
+        "Community features ($9/month)",
+        "Analytics add-ons"
+      ],
+      "micro_saas_ideas": [
+        "Launch Day Dashboard",
+        "Indie Hacker Analytics",
+        "Community Engagement Tracker"
+      ]
+    },
+    {
+      "title": "Update 1: Non-technical co-founders want me to take a pay cut \"for the bigger picture\u201d",
+      "reddit_url": "https://reddit.com/r/SaaS/comments/1r2tcsp/update_1_nontechnical_cofounders_want_me_to_take/",
+      "score": 78,
+      "comments": 43,
+      "analysis": "Common pain point in startup dynamics. Legal/business agreements are often overlooked.",
+      "feasibility": 6,
+      "audience_potential": 7,
+      "business_model_suggestions": [
+        "Template marketplace",
+        "Document generator SaaS",
+        "Consultation add-ons"
+      ],
+      "micro_saas_ideas": [
+        "Co-founder Agreement Builder",
+        "Startup Legal Doc Generator",
+        "Equity Calculator Tool"
+      ]
+    }
+  ],
+  "hn_stories": [
+    {
+      "title": "MinIO repository is no longer maintained",
+      "hn_url": "https://news.ycombinator.com/item?id=47000041",
+      "score": 93,
+      "analysis": "AI tools and models are highly trending. Opportunities in tooling around AI APIs.",
+      "feasibility": 8,
+      "audience_potential": 9,
+      "business_model_suggestions": [
+        "API wrapper SaaS",
+        "AI workflow automation",
+        "Model comparison tools"
+      ],
+      "micro_saas_ideas": [
+        "AI API Cost Optimizer",
+        "Multiple AI Provider Dashboard",
+        "AI Response Quality Analyzer"
+      ]
+    },
+    {
+      "title": "Resizing windows on macOS Tahoe \u2013 the saga continues",
+      "hn_url": "https://news.ycombinator.com/item?id=46997008",
+      "score": 533,
+      "analysis": "Developer pain points around tools and workflows. Niche but loyal audience.",
+      "feasibility": 6,
+      "audience_potential": 7,
+      "business_model_suggestions": [
+        "One-time purchase",
+        "Subscription for teams",
+        "Open source + paid features"
+      ],
+      "micro_saas_ideas": [
+        "Developer Workflow Optimizer",
+        "Tool Configuration Manager",
+        "Cross-platform Utility"
+      ]
+    },
+    {
+      "title": "MMAcevedo aka Lena by qntm",
+      "hn_url": "https://news.ycombinator.com/item?id=46999224",
+      "score": 71,
+      "analysis": "General tech discussion. Evaluate based on engagement score and comments.",
+      "feasibility": 5,
+      "audience_potential": 6,
+      "business_model_suggestions": [
+        "Need more specific pain point"
+      ],
+      "micro_saas_ideas": [
+        "Problem-specific solution"
+      ]
+    }
+  ],
+  "summary": {
+    "total_opportunities": 6,
+    "avg_feasibility": 6.666666666666667,
+    "avg_audience_potential": 7.666666666666667
+  }
+}
