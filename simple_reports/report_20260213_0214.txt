@@ -1,0 +1,61 @@
+=== MICRO SAAS IDEAS FOR SOLO DEVELOPERS ===
+Generated: 2026-02-13 02:14
+Filter: Only feasible for 1-person teams
+============================================
+
+## 🔥 TOP 3 CURATED IDEAS
+
+### 1. AI Content Optimizer Tool
+**Source:** Reddit - 'There Is No Cheat Code to Ranking in ChatGPT'
+**Link:** https://www.reddit.com/r/SaaS/comments/1r2sj69/there_is_no_cheat_code_to_ranking_in_chatgpt/
+**Summary:** Everyone wants their content to rank in AI search results.
+**Why solo-friendly:**
+- Start with simple content scoring algorithm
+- Can build MVP in 2-4 weeks
+- Use your existing skills (Flutter + Python)
+- Freemium model: Free basic scoring, 9/month for advanced
+
+### 2. Launch Tracker Dashboard
+**Source:** Reddit - 'I launched my app 3 hours ago...'
+**Link:** https://www.reddit.com/r/SaaS/comments/1r2qh9z/i_launched_my_app_3_hours_ago_and_im_honestly/
+**Summary:** Indie hackers love tracking their launch metrics.
+**Why solo-friendly:**
+- Simple dashboard (traffic, signups, revenue)
+- Can integrate with common APIs (Google Analytics, Stripe)
+- Build in 3-4 weeks
+- Charge -29/month
+
+### 3. Dark Pattern Detector Extension
+**Source:** Hacker News - 'Skip the Tips' game
+**Link:** https://news.ycombinator.com/item?id=46997519
+**Summary:** Growing concern about manipulative UI design.
+**Why solo-friendly:**
+- Browser extension (Chrome/Firefox)
+- Start with 3-5 common pattern detections
+- Build in 4-6 weeks
+- Freemium: Free detection, 9/year for advanced features
+
+## 🎯 RECOMMENDATION FOR YOU
+
+**Based on your skills (Flutter, Python) and solo status:**
+
+1. **AI Content Optimizer** - Best match for your technical skills
+   - Frontend: Flutter web app
+   - Backend: Python for content analysis
+   - Market: Large (every content creator)
+
+2. **Launch Tracker** - Easier to start, smaller market
+   - Simpler to build
+   - Target audience: indie hackers like you
+
+## 📝 NEXT STEPS
+
+1. **Choose one idea** from above
+2. **Research competitors** - see what already exists
+3. **Build MVP** in 2-4 weeks
+4. **Launch** and get first customers
+
+============================================
+Report saved: simple_reports/report_20260213_0214.txt
+Simple Dashboard: simple_dashboard.html
+Updated: 2026-02-13 02:14

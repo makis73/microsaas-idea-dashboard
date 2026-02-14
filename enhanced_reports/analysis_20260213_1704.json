@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-02-13T17:04:20.624628",
+  "reddit_posts": [
+    {
+      "title": "we got featured on product hunt and it nearly killed our company",
+      "reddit_url": "https://reddit.com/r/SaaS/comments/1r3lat4/we_got_featured_on_product_hunt_and_it_nearly/",
+      "score": 126,
+      "comments": 91,
+      "analysis": "General SaaS discussion. Look for recurring pain points or specific tool requests.",
+      "feasibility": 5,
+      "audience_potential": 6,
+      "business_model_suggestions": [
+        "Freemium model",
+        "Pay-per-use"
+      ],
+      "micro_saas_ideas": [
+        "Problem-specific utility tool"
+      ]
+    },
+    {
+      "title": "Reaching $15k MRR with high intent Linkedin tactict",
+      "reddit_url": "https://reddit.com/r/SaaS/comments/1r3o95f/reaching_15k_mrr_with_high_intent_linkedin_tactict/",
+      "score": 70,
+      "comments": 35,
+      "analysis": "General SaaS discussion. Look for recurring pain points or specific tool requests.",
+      "feasibility": 5,
+      "audience_potential": 6,
+      "business_model_suggestions": [
+        "Freemium model",
+        "Pay-per-use"
+      ],
+      "micro_saas_ideas": [
+        "Problem-specific utility tool"
+      ]
+    },
+    {
+      "title": "The brutal truth about n8n vs Zapier vs Make vs others after using all 7 for 6 months",
+      "reddit_url": "https://reddit.com/r/SaaS/comments/1r3op4c/the_brutal_truth_about_n8n_vs_zapier_vs_make_vs/",
+      "score": 37,
+      "comments": 27,
+      "analysis": "General SaaS discussion. Look for recurring pain points or specific tool requests.",
+      "feasibility": 5,
+      "audience_potential": 6,
+      "business_model_suggestions": [
+        "Freemium model",
+        "Pay-per-use"
+      ],
+      "micro_saas_ideas": [
+        "Problem-specific utility tool"
+      ]
+    }
+  ],
+  "hn_stories": [
+    {
+      "title": "The evolution of OpenAI's mission statement",
+      "hn_url": "https://news.ycombinator.com/item?id=47009416",
+      "score": 98,
+      "analysis": "AI tools and models are highly trending. Opportunities in tooling around AI APIs.",
+      "feasibility": 8,
+      "audience_potential": 9,
+      "business_model_suggestions": [
+        "API wrapper SaaS",
+        "AI workflow automation",
+        "Model comparison tools"
+      ],
+      "micro_saas_ideas": [
+        "AI API Cost Optimizer",
+        "Multiple AI Provider Dashboard",
+        "AI Response Quality Analyzer"
+      ]
+    },
+    {
+      "title": "Homeland Security Wants Social Media Sites to Expose Anti-ICE Accounts",
+      "hn_url": "https://news.ycombinator.com/item?id=47009582",
+      "score": 136,
+      "analysis": "General tech discussion. Evaluate based on engagement score and comments.",
+      "feasibility": 5,
+      "audience_potential": 6,
+      "business_model_suggestions": [
+        "Need more specific pain point"
+      ],
+      "micro_saas_ideas": [
+        "Problem-specific solution"
+      ]
+    },
+    {
+      "title": "GPT-5.2 derives a new result in theoretical physics",
+      "hn_url": "https://news.ycombinator.com/item?id=47006594",
+      "score": 352,
+      "analysis": "AI tools and models are highly trending. Opportunities in tooling around AI APIs.",
+      "feasibility": 8,
+      "audience_potential": 9,
+      "business_model_suggestions": [
+        "API wrapper SaaS",
+        "AI workflow automation",
+        "Model comparison tools"
+      ],
+      "micro_saas_ideas": [
+        "AI API Cost Optimizer",
+        "Multiple AI Provider Dashboard",
+        "AI Response Quality Analyzer"
+      ]
+    }
+  ],
+  "summary": {
+    "total_opportunities": 6,
+    "avg_feasibility": 6.0,
+    "avg_audience_potential": 7.0
+  }
+}
