@@ -1,0 +1,57 @@
+Dan Brown "Το Μυστικό των Μυστικών" - ΠΡΑΓΑ ΣΥΝΤΕΤΑΓΜΕΝΕΣ
+
+Αντιγράψτε αυτές τις συντεταγμένες στο Google Maps search bar:
+
+1. St. Vitus Cathedral
+50.0909, 14.4005
+
+2. Prague Castle (Παλιό Κάστρο)
+50.0900, 14.4000
+
+3. Vladislav Hall
+50.0899, 14.4036
+
+4. Wallenstein Palace
+50.0903, 14.4080
+
+5. Four Seasons Hotel Prague
+50.0870, 14.4150
+
+6. Strahov Swimming Center
+50.0826, 14.3909
+
+7. Vltava River (Ποταμός Βλτάβα)
+50.0865, 14.4115
+
+8. Charles University
+50.0878, 14.4175
+
+9. Castle Hill (Λόφος Κάστρου)
+50.0900, 14.4000
+
+10. City of a Hundred Spires
+50.0875, 14.4213
+
+11. Old Town (Παλιά Πόλη)
+50.0875, 14.4213
+
+Google Maps Links:
+• St. Vitus: https://maps.google.com/?q=50.0909,14.4005
+• Prague Castle: https://maps.google.com/?q=50.0900,14.4000
+• Vladislav Hall: https://maps.google.com/?q=50.0899,14.4036
+• Wallenstein: https://maps.google.com/?q=50.0903,14.4080
+• Four Seasons: https://maps.google.com/?q=50.0870,14.4150
+• Strahov: https://maps.google.com/?q=50.0826,14.3909
+• Vltava: https://maps.google.com/?q=50.0865,14.4115
+• University: https://maps.google.com/?q=50.0878,14.4175
+
+CSV για Import:
+Name,Latitude,Longitude
+St. Vitus Cathedral,50.0909,14.4005
+Prague Castle,50.0900,14.4000
+Vladislav Hall,50.0899,14.4036
+Wallenstein Palace,50.0903,14.4080
+Four Seasons Hotel,50.0870,14.4150
+Strahov Swimming Center,50.0826,14.3909
+Vltava River,50.0865,14.4115
+Charles University,50.0878,14.4175
