@@ -305,7 +305,7 @@
     </div>
 
     <script>
-        // All 10 curated ideas (7 from yesterday + 3 new today)
+        // All 13 curated ideas (10 previous + 3 new today)
         const allIdeas = [
             {
                 id: 1,
@@ -456,6 +456,51 @@
                 tags: [],
                 microIdeas: ["Dark pattern detector", "Ethical design scanner", "Browser extension"],
                 businessModels: ["Freemium", "Enterprise scanning", "Consulting services"]
+            },
+            {
+                id: 11,
+                title: "ArchWiki Documentation Assistant",
+                link: "https://github.com/makis73/microsaas-idea-dashboard/blob/main/ideas/archwiki-documentation-assistant.md",
+                source: "hn",
+                summary: "Tool that helps maintain and cross-reference documentation wikis. Perfect for open-source projects and technical communities.",
+                analysis: "GOOD for solo dev: Uses public APIs, simple data processing. Can launch as web app or Chrome extension. Niche but valuable for documentation teams.",
+                score: 70,
+                mvpTime: "2-3 weeks",
+                market: "Global",
+                monetization: "$29/month",
+                tags: [],
+                microIdeas: ["Wiki maintenance", "Link checking", "Content freshness"],
+                businessModels: ["Freemium", "Team subscriptions", "Enterprise"]
+            },
+            {
+                id: 12,
+                title: "Windows Native Development Environment Fixer",
+                link: "https://github.com/makis73/microsaas-idea-dashboard/blob/main/ideas/windows-dev-environment-fixer.md",
+                source: "hn",
+                summary: "Tool that simplifies Windows native development environment setup and troubleshooting for C++, C#, Rust developers.",
+                analysis: "MODERATE for solo dev: Requires Windows system knowledge. Can start with CLI tool, add GUI later. Niche audience but loyal Windows developers.",
+                score: 60,
+                mvpTime: "3-4 weeks",
+                market: "Global",
+                monetization: "$49 one-time + $9/month teams",
+                tags: [],
+                microIdeas: ["Dev environment diagnostics", "Automated fixes", "Configuration management"],
+                businessModels: ["One-time purchase", "Team subscriptions", "Enterprise support"]
+            },
+            {
+                id: 13,
+                title: "File Conversion Automation Tool",
+                link: "https://github.com/makis73/microsaas-idea-dashboard/blob/main/ideas/file-conversion-automation.md",
+                source: "reddit",
+                summary: "Automated tool that converts files between formats (documents, images, audio, video) with batch processing and local processing for privacy.",
+                analysis: "EXCELLENT for solo dev: Leverages existing libraries (FFmpeg, Pandoc, ImageMagick). Quick MVP (1-2 weeks). Universal need with clear monetization.",
+                score: 90,
+                mvpTime: "1-2 weeks",
+                market: "Global",
+                monetization: "$15/month unlimited",
+                tags: ["recommended", "quick"],
+                microIdeas: ["Batch conversion", "Cloud storage integration", "API access"],
+                businessModels: ["Subscription", "Pay-per-use", "Enterprise API"]
             }
         ];
 
